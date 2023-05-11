@@ -1,1 +1,0 @@
-export const URL = 'https://news-for-youth.onrender.com'
