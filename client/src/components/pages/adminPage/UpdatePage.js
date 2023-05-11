@@ -91,8 +91,6 @@ function UpdatePage() {
     })
   }
 
-  console.log({post});
-
   return (
     <div className={classes.container}>
       <div className={classes.createPost_form}>

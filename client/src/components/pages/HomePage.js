@@ -104,7 +104,7 @@ function HomePage({user}) {
 
           {/* post list */}
           <div className={classes.post_list}>
-            {posts.map((post) => {
+            {posts?.map((post) => {
               return <Post key={post?._id} post={post} user={user} posts={posts} setPosts={setPosts}  />
             })}
           </div>

@@ -1,11 +1,9 @@
 import React, {useState} from 'react'
 import { Button } from "@material-ui/core";
 import axios from 'axios';
-
+import { URL } from '../../globalVar';
 function FileUpload({post, setPost}) {
   const [imgLoading, setImgLoading] = useState(false)
-
-  const URL = 'https://news-for-youth.herokuapp.com'
 
   const fileUpload = async (e) => {
     const files = e.target.files

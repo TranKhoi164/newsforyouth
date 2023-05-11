@@ -37,10 +37,10 @@ function FavouritePosts({post}) {
   
   return (
     <div className={classes.container}>
-      <Link to={'/detail/' + post.slug}><img src={post.image} alt={post.title} className={classes.img} /></Link>
-      <Link  to={'/detail/' + post.slug} className={classes.title_container}>
+      <Link to={'/detail/' + post?.slug}><img src={post?.image} alt={post?.title} className={classes.img} /></Link>
+      <Link  to={'/detail/' + post?.slug} className={classes.title_container}>
         <div className={classes.title}>
-          {post.title}
+          {post?.title}
         </div>
       </Link>
     </div>

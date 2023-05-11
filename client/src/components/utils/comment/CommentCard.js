@@ -36,10 +36,10 @@ function CommentCard({children, comment}) {
       <Avatar alt='user' src="https://res.cloudinary.com/dfkkrqh2s/image/upload/v1644766813/ecommerce/Screenshot_2022-02-04_181853_u6m6cf.png" />
       <div className={classes.commentCard_body}>
         <div className={classes.commentCardRow}>
-          <div className={classes.username}>{comment.username}</div>
+          <div className={classes.username}>{comment?.username}</div>
         </div>
 
-        <div>{comment.content}</div>
+        <div>{comment?.content}</div>
         {children}
       </div>
     </div>

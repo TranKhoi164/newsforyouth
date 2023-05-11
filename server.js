@@ -16,13 +16,25 @@ const { Server } = require('socket.io')
 const io = new Server(server, {
   cors: {
     origin: process.env.CLIENT_URL,
-    method: ['GET', 'POST']
   }
 })
 
-app.use(cors({
-  origin: process.env.CLIENT_URL
-}))
+app.use(function(req, res, next) {
+  // res.header("Access-Control-Allow-Origin", "*");
+  const allowedOrigins = ['http://localhost:3000', process.env.CLIENT_URL];
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+       res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  res.header("Access-Control-Allow-credentials", true);
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, UPDATE");
+  next();
+});
+
+// app.use(cors({
+//   origin: process.env.CLIENT_URL
+// }))
 app.use(express.json())
 app.use(fileUpLoad({
   useTempFiles: true
@@ -47,6 +59,12 @@ app.use('/api', require('./routes/uploadRoute'))
 
 app.post('/', (req, res) => {
   return res.json({req_body: req.body})
+})
+
+app.get('/', (req, res) => {
+  return res.json({
+    test: 'hello'
+  })
 })
 
 //TODO: connect to socket io
@@ -98,6 +116,6 @@ io.on('connection', socket => {
 })
 
 
-server.listen(PORT, () => {
-  console.log('Server is running on port ' + process.env.CLIENT_URL);
+server.listen(5000, () => {
+  console.log('Server is running on port ' + 5000);
 })

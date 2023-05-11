@@ -1,7 +1,7 @@
 import axios from "axios"
+import { URL } from "../globalVar"
 
 //https://news-for-youth.herokuapp.com
-const URL = 'https://news-for-youth.herokuapp.com'
 
 
 const getComments = async (postSlug) => {

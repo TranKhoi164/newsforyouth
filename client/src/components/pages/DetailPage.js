@@ -13,9 +13,9 @@ import Comment from '../utils/comment/Comment';
 import {getPostsByCategory} from '../../api/PostApi'
 import Post from '../utils/post/Post'
 import Banner from '../../img/Bia.png'
+import { URL } from '../../globalVar';
 
 //const URL ='https://news-for-youth.herokuapp.com'
-const URL = 'http://localhost:5000'
 const socket = io(URL)
 
 const useStyle = makeStyles((theme) => ({

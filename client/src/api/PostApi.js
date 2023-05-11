@@ -1,7 +1,7 @@
 import axios from 'axios'
+import { URL } from '../globalVar'
 
 //https://news-for-youth.herokuapp.com
-const URL = 'https://news-for-youth.herokuapp.com'
 
 const createPost = async (post) => {
   return new Promise(async (resolve, reject) => {
@@ -11,7 +11,7 @@ const createPost = async (post) => {
       })
       resolve(newPost.data.msg)
     } catch (e) {
-      reject(e.response.data.msg)
+      reject(e?.response)
     }
   })
 }
@@ -24,7 +24,7 @@ const deletePost = async (id) => {
       })
       resolve(deletePostRes.data.msg)
     } catch (e) {
-      reject(e.response.data.msg)
+      reject(e?.response)
     }
   })
 }
@@ -37,7 +37,7 @@ const updatePost = async (post) => {
       })
       resolve(updatePostRest.data.msg)
     } catch (e) {
-      reject(e.response.data.msg)
+      reject(e?.response)
     }
   })
 }

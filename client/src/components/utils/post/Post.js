@@ -82,17 +82,17 @@ function Post({post, user, posts, setPosts}) {
   const adminAcc = () => {
     return <div style={{textAlign: 'end'}}>
       <Link style={{color: 'black', textDecoration: 'none'}} 
-          to={`/update/${post._id}`}
+          to={`/update/${post?._id}`}
           state={post}
           >
             <CreateIcon onClick={() => {}} /> 
           </Link>
       <DeleteForeverIcon 
         onClick={async () => {
-          const dlt = await deletePost(post._id)
+          const dlt = await deletePost(post?._id)
           console.log(dlt)
           const newPosts = posts.filter(postt => {
-            return postt._id !== post._id
+            return postt?._id !== post?._id
           })
           setPosts(newPosts)
         }} 
@@ -104,25 +104,25 @@ function Post({post, user, posts, setPosts}) {
   return (
     <div className={classes.post_container}>
       <div className={classes.content}>
-        <Link to={`/detail/${post.slug}`} style={{display: 'flex'}}><img src={post.image} alt="post-img" className={classes.image} /></Link>
+        <Link to={`/detail/${post?.slug}`} style={{display: 'flex'}}><img src={post?.image} alt="post-img" className={classes.image} /></Link>
         <div className={classes.introduce}>
-          <Link to={`/detail/${post.slug}`} className={classes.title}>
-            {post.title.length > 120
-            ? post.title.substring(0, 120) + "..."
-            : post.title}
+          <Link to={`/detail/${post?.slug}`} className={classes.title}>
+            {post?.title?.length > 120
+            ? post?.title.substring(0, 120) + "..."
+            : post?.title}
           </Link>
           <div className={classes.category}>
-            {post.categorySlug === 'goc-chia-se' && 'Góc chia sẻ'} 
-            {post.categorySlug === 'truyen-thong' && 'Truyền thống'} 
-            {post.categorySlug === 'suc-khoe' && 'Sức khỏe'} 
-            {post.categorySlug === 'am-thuc' && 'Ẩm thực'} 
-            {post.categorySlug === 'xu-huong' && 'Xu hướng'} 
-            {post.categorySlug === 'tinh-yeu' && 'Tình yêu'} 
-            {post.categorySlug === 'cong-nghe' && 'Công nghệ'} 
+            {post?.categorySlug === 'goc-chia-se' && 'Góc chia sẻ'} 
+            {post?.categorySlug === 'truyen-thong' && 'Truyền thống'} 
+            {post?.categorySlug === 'suc-khoe' && 'Sức khỏe'} 
+            {post?.categorySlug === 'am-thuc' && 'Ẩm thực'} 
+            {post?.categorySlug === 'xu-huong' && 'Xu hướng'} 
+            {post?.categorySlug === 'tinh-yeu' && 'Tình yêu'} 
+            {post?.categorySlug === 'cong-nghe' && 'Công nghệ'} 
           </div>
-          <div className={classes.intro}>{post.intro.length > 120
-            ? post.intro.substring(0, 120) + "..."
-            : post.intro}
+          <div className={classes.intro}>{post?.intro?.length > 120
+            ? post?.intro?.substring(0, 120) + "..."
+            : post?.intro}
           </div>
           {user?.name === 'admin' && adminAcc()}
         </div>

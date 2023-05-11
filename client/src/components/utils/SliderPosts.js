@@ -59,8 +59,8 @@ function SliderPosts({favouritePosts}) {
     <div className={classes.sliderposts}>
       <Slider {...settings}>
         {
-          favouritePosts.map((post) => {
-            return <FavouritePosts post={post} key={post._id} />
+          favouritePosts?.map((post) => {
+            return <FavouritePosts post={post} key={post?._id} />
           })
         }
       </Slider>

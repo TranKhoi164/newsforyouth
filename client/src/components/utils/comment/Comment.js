@@ -32,13 +32,13 @@ function Comment({comment, socket, user}) {
     <>
       <CommentCard comment={comment}>
         <div className={classes.navComment}>
-          <p onClick={() => handleReply(comment.username)}>Trả lời</p>
+          <p onClick={() => handleReply(comment?.username)}>Trả lời</p>
         </div>
 
         <div className="reply_comment">
           {
             comment.reply.map(rep => {
-              return <CommentCard comment={rep} key={rep._id}>
+              return <CommentCard comment={rep} key={rep?._id}>
                 
               </CommentCard>
             })
@@ -46,8 +46,8 @@ function Comment({comment, socket, user}) {
         </div>
 
         {reply && <CommentInput
-          commentId={comment._id}
-          postSlug={comment.postSlug}
+          commentId={comment?._id}
+          postSlug={comment?.postSlug}
           socket={socket}
           name={name}
           setReply={setReply}

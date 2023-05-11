@@ -59,9 +59,9 @@ function SearchPage({user}) {
         </form>
         <div className={classes.post_list}>
           {
-            posts.length > 0 &&
-              posts.map(post => {
-                return <Post user={user} key={post._id} post={post} />
+            posts?.length > 0 &&
+              posts?.map(post => {
+                return <Post user={user} key={post?._id} post={post} />
               })
           }
           {

@@ -89,7 +89,7 @@ function CategoryPage({ user, setUser }) {
 
   const initializePosts = async () => {
     try {
-      setPosts(await getPostsByCategory(slug.slug));
+      setPosts(await getPostsByCategory(slug?.slug));
     } catch (e) {
       console.log({ e });
     }

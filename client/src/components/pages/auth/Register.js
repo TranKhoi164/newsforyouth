@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { makeStyles } from "@material-ui/styles";
 import { Link } from 'react-router-dom';
 import axios from 'axios'
+import { URL } from '../../../globalVar';
 
 const useStyle = makeStyles((theme) => ({
   container: {
@@ -62,7 +63,7 @@ function Register({user, setUser}) {
   })
   const [checkPassword, setCheckPassword] = useState('')
   const [err, setErr] = useState('')
-  const URL = 'https://news-for-youth.herokuapp.com'
+  // const URL = 'https://news-for-youth.herokuapp.com'
 
   const handleSubmit = async (e) => {
     e.preventDefault()
