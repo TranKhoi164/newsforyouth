@@ -60,7 +60,7 @@ const getPosts = async (req, res) => {
 const getPost = async (req, res) => {
   try {
     const post = await Posts.findOne({slug: req.body.slug})
-    console.log({req: req.body});
+    // console.log({req: req.body});
     return res.json({post: post})
   } catch (e) {
     return res.status(500).json({msg: e.message})

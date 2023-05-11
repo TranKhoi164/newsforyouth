@@ -9,7 +9,7 @@ cloudinary.config({
 const uploadImage = async (req, res) => {
   try {
     const file = req.files.file
-    console.log(file);
+    // console.log(file);
 
     cloudinary.v2.uploader.upload(file.tempFilePath, {
       folder: 'nfy/images',

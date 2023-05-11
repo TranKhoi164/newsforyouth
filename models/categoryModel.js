@@ -14,3 +14,6 @@ const categoryModel = new mongoose.Schema({
     required: true,
   }
 })
+
+const Categories = mongoose.model('Category', userModel)
+module.exports = Categories

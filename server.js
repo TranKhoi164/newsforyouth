@@ -69,7 +69,7 @@ app.get('/', (req, res) => {
 
 //TODO: connect to socket io
 io.on('connection', socket => {
-  console.log(socket.id + ' connected');
+  // console.log(socket.id + ' connected');
 
   let users = []
   socket.on('joinRoom', postSlug => { //room id is post slug
@@ -89,7 +89,7 @@ io.on('connection', socket => {
       users[indx].roomId = postSlug
       socket.join(postSlug)
     }
-    console.log({users});
+    // console.log({users});
   })
 
   socket.on('createComment', async commentInfo => {
