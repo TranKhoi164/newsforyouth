@@ -57,6 +57,10 @@ app.use('/post', require('./routes/postRoute'))
 app.use('/comment', require('./routes/commentRoute'))
 app.use('/api', require('./routes/uploadRoute'))
 
+app.get('/healthz', (req, res) => {
+  return res.status(200).send()
+})
+
 app.post('/', (req, res) => {
   return res.json({req_body: req.body})
 })
